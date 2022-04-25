@@ -1,5 +1,6 @@
 import axios from "axios";
 import games from "../model/games.model";
+import game from "../model/game.model"
 
 const api = axios.create({
   baseURL: "https://free-to-play-games-database.p.rapidapi.com/api",
@@ -11,4 +12,5 @@ const api = axios.create({
 
 export default {
   games: games(api),
+  game: game(api),
 };

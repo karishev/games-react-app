@@ -10,7 +10,7 @@ export const GamesListItem: React.FC<PageProps> = ({ game }) => {
   return (
     <Card sx={{ maxWidth: "20rem", margin: "0.8rem" }}>
       <CardMedia
-        sx={{ aspectRatio: "16/9", maxWidth: "100%" }}
+        sx={{ aspectRatio: "16/10", maxWidth: "100%" }}
         component="img"
         alt={game.title}
         image={game.thumbnail}
@@ -20,7 +20,7 @@ export const GamesListItem: React.FC<PageProps> = ({ game }) => {
           {game.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {game.short_description}
+          {game.short_description.length > 80  ? game.short_description.substring(0, 80) + "..." :  game.short_description}
         </Typography>
       </CardContent>
     </Card>

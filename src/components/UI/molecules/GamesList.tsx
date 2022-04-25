@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import style from "../molecules/GamesList.module.css";
 import api from "../../../services/api";
 import { Game } from "../../../model/games.model";
-import { Grid} from "@mui/material";
+import { Grid } from "@mui/material";
 
 const fetchGames = async () => {
   try {
@@ -35,8 +35,8 @@ export const GamesList = () => {
             ? games.map((game: Game) => {
                 return <GamesListItem key={game.id} game={game} />;
               })
-            : Array.from(new Array(16)).map(( num: number) => {
-                return <GameListItemSkeleton key={num} />;
+            : Array.from(new Array(16)).map((item, index) => {
+                return <GameListItemSkeleton key={index} />;
               })}
         </Grid>
       </section>

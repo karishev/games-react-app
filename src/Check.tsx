@@ -35,6 +35,7 @@ export const Check = () => {
 
   return (
     <>
+    {!game && <h1>Loading...</h1>}
       {game && <h1>{game.description}</h1>}
       {games !== undefined &&
         games.map((game: Game) => {

@@ -1,10 +1,10 @@
 import "./App.css";
-import { Check } from "./Check";
+import { GamesList } from "./components/UI/molecules/GamesList";
 
 const App = () => {
   return (
     <>
-      <Check />
+      <GamesList />
     </>
   );
 };

@@ -1,8 +1,9 @@
 import { GamesListItem } from "../atoms/GamesListItem";
 import { useEffect, useState } from "react";
-import style from "../molecules/GamesList.module.css"
+import style from "../molecules/GamesList.module.css";
 import api from "../../../services/api";
 import { Game } from "../../../model/games.model";
+import { Grid } from "@mui/material";
 
 const fetchGames = async () => {
   try {
@@ -23,10 +24,12 @@ export const GamesList = () => {
   return (
     <>
       <section className={style.grid}>
-        {games &&
-          games.map((game: Game) => {
-            return <GamesListItem key={game.id} game={game} />;
-          })}
+        <Grid container rowSpacing={2} justifyContent="space-evenly" columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          {games &&
+            games.map((game: Game) => {
+              return <GamesListItem key={game.id} game={game} />;
+            })}
+        </Grid>
       </section>
     </>
   );

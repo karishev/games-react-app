@@ -1,11 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { GamesList } from "./components/UI/molecules/GamesList";
+import { routes } from "./router/routes";
 
 const App = () => {
   return (
-    <>
-      <GamesList />
-    </>
+    <BrowserRouter>
+        <Routes>
+          {routes.map((route, i) => (
+            <Route key={i} path={route.path} element={route.component} />
+          ))}
+        </Routes>
+    </BrowserRouter>
   );
 };
 

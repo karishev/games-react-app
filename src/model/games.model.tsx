@@ -1,4 +1,4 @@
-interface Game {
+export interface Game {
   id: number;
   title: string;
   thumbnail: string;
@@ -12,13 +12,14 @@ interface Game {
   freetogame_profile_url: string;
 }
 
-interface Games {
-  games: Array<Game>;
+export interface GamesRepsonse {
+  data: Array<Game>;
 }
 
-export default function (api: { get: (arg0: string) => Promise<Games> }) {
+export default function (api: { get: (arg0: string) => Promise<GamesRepsonse> }) {
   return {
-    getGames: () => api.get("/games").then((data: Games) => {
+    getGames: () =>
+      api.get("/games").then((data: GamesRepsonse) => {
         return data;
       }),
   };

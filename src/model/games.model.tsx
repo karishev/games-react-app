@@ -12,15 +12,15 @@ export interface Game {
   freetogame_profile_url: string;
 }
 
-export interface GamesRepsonse {
+interface GamesRepsonse {
   data: Array<Game>;
 }
 
 export default function (api: { get: (arg0: string) => Promise<GamesRepsonse> }) {
   return {
     getGames: () =>
-      api.get("/games").then((data: GamesRepsonse) => {
-        return data;
+      api.get("/games").then((response: GamesRepsonse) => {
+        return response.data;
       }),
   };
 }

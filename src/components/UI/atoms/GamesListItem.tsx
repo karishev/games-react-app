@@ -8,9 +8,9 @@ interface PageProps {
 
 export const GamesListItem: React.FC<PageProps> = ({ game }) => {
   return (
-    <Card sx={{ maxWidth: "20rem", margin: "0.8rem" }}>
+    <Card sx={{ maxWidth: "18rem", margin: "0.8rem" }}>
       <CardMedia
-        sx={{ aspectRatio: "16/10", maxWidth: "100%" }}
+        sx={{ aspectRatio: "16/9", maxWidth: "100%" }}
         component="img"
         alt={game.title}
         image={game.thumbnail}

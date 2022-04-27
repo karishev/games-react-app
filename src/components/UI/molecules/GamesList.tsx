@@ -1,7 +1,7 @@
 import { GamesListItem } from "../atoms/GamesListItem";
 import { GameListItemSkeleton } from "../atoms/GameListItemSkeleton";
 import { useEffect, useState } from "react";
-import style from "../molecules/GamesList.module.css";
+import style from "../modules/GamesList.module.css";
 import api from "../../../services/api";
 import { Game } from "../../../model/games.model";
 import { Grid } from "@mui/material";

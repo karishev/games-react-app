@@ -1,0 +1,16 @@
+.game_image {
+    display: block;
+    position: relative;
+}
+
+.add_icon {
+    display: none;
+}
+
+.game_image:hover {
+    opacity: 0.5;
+}
+
+.game_image:hover .add_icon {
+    display: block;
+}

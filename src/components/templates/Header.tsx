@@ -1,15 +1,13 @@
-import React from 'react'
-import { NavLink, useParams } from 'react-router-dom'
-import styles from '../UI/modules/Header.module.css'
-import { IoGameController } from 'react-icons/io5'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styles from "../UI/modules/Header.module.css";
+import { IoGameController } from "react-icons/io5";
 
-export const Header:React.FC = () => {
+export const Header: React.FC = () => {
   const activeStyle = {
-    color: '#fff',
-  }
-  const i = useParams()
-
-  console.log(i);
+    color: "#fff",
+  };
+  
 
   return (
     <header className={styles.header}>
@@ -34,7 +32,7 @@ export const Header:React.FC = () => {
                 to="popular"
                 // style={({ isActive }) => (isActive ? activeStyle : null)}
               > */}
-                Popular
+              Popular
               {/* </NavLink> */}
             </li>
             <li>
@@ -49,5 +47,5 @@ export const Header:React.FC = () => {
         </nav>
       </div>
     </header>
-  )
-}
+  );
+};

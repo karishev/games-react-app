@@ -1,4 +1,5 @@
 import { Game } from "../../../model/games.model";
+import styles from "../modules/GameListItem.module.css";
 import React from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
@@ -8,19 +9,29 @@ interface PageProps {
 
 export const GamesListItem: React.FC<PageProps> = ({ game }) => {
   return (
-    <Card sx={{ maxWidth: "15rem", margin: "0.5rem" }}>
+    <Card
+      sx={{
+        maxWidth: "18rem",
+        margin: "0.5rem",
+        backgroundColor: "rgba(0,0,0,0)",
+        boxShadow: "0",
+      }}
+    >
       <CardMedia
-        sx={{ aspectRatio: "16/10", maxWidth: "100%" }}
+        className={styles.game_image}
+        sx={{ aspectRatio: "16/9", maxWidth: "100%", borderRadius: 2 }}
         component="img"
         alt={game.title}
         image={game.thumbnail}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography variant="body1" component="div" color="white">
           {game.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {game.short_description.length > 80  ? game.short_description.substring(0, 80) + "..." :  game.short_description}
+        <Typography variant="body2" color="gray">
+          {game.short_description.length > 80
+            ? game.short_description.substring(0, 80) + "..."
+            : game.short_description}
         </Typography>
       </CardContent>
     </Card>

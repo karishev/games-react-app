@@ -27,13 +27,13 @@ export const GamesList = () => {
       <section className={style.grid}>
         <Grid
           container
-          rowSpacing={2}
+          rowSpacing={0.5}
           justifyContent="space-evenly"
-          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          columnSpacing={{ xs: 1, sm: 1, md: 3 }}
         >
           {games
             ? games.map((game: Game) => {
-                return <GamesListItem key={game.id} game={game} />;
+                return <GamesListItem key={game.id} game={game} />
               })
             : Array.from(new Array(16)).map((item, index) => {
                 return <GameListItemSkeleton key={index} />;

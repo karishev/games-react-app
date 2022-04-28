@@ -1,4 +1,3 @@
-// import { AiFillHeart } from 'react-icons/ai'
 import styles from '../UI/modules/Footer.module.css'
 
 export const Footer = () => {
@@ -8,14 +7,11 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className="container">
         <p className="text-muted">
-          © {currentYear} Gametis, all rights reserved.
+          © {currentYear}, OneLab. All rights reserved
         </p>
+        <p></p>
         <p className={styles.created}>
-          Created with{' '}
-          <span>
-            {/* <AiFillHeart className={styles.heart} /> */}
-          </span>{' '}
-          by Ali and Shyngys
+          Created with love by Ali and Shyngys
         </p>
       </div>
     </footer>

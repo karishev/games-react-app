@@ -7,7 +7,9 @@ import {
   CardContent,
   CardMedia,
   styled,
+  Tooltip,
   Typography,
+  Zoom,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -52,14 +54,16 @@ export const GamesListItem: React.FC<PageProps> = ({ game }) => {
         </Link>
       </div>
       <div className={styles.add}>
-        <AddButton
-          className={styles.add_icon}
-          onClick={() => {
-            console.log("salam");
-          }}
-        >
-          +
-        </AddButton>
+        <Tooltip title="Add to Favorites" TransitionComponent={Zoom} placement="top" sx={{bgcolor: "#121212"}}>
+          <AddButton
+            className={styles.add_icon}
+            onClick={() => {
+              console.log("salam");
+            }}
+          >
+            +
+          </AddButton>
+        </Tooltip>
       </div>
       <CardContent>
         <Link to={`/games/${game.id}`}>

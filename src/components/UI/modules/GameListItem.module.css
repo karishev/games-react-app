@@ -1,16 +1,32 @@
-.game_image {
-    display: block;
-    position: relative;
+.container {
+  position: relative;
 }
 
-.add_icon {
-    display: none;
+.game_image {
+  display: block;
+}
+
+.add {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 30px;
+  aspect-ratio: 1/1;
+  z-index: 1;
 }
 
 .game_image:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
-.game_image:hover .add_icon {
-    display: block;
+.add:hover .add_icon {
+  visibility: visible;
+}
+
+.game_image:hover + .add > .add_icon {
+  visibility: visible;
+}
+
+.add_icon:hover + .game_image {
+  opacity: 0.5;
 }

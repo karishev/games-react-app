@@ -1,7 +1,7 @@
-import { Home } from "../components/pages/Home";
-import { GameInformation } from "../components/pages/GameInformation";
-import { Popular } from "../components/pages/Popular";
-import { Favorites } from "../components/pages/Favorites";
+import { Home } from "../components/pages/HomePage";
+import { GameInformation } from "../components/pages/GameInformationPage";
+import { Popular } from "../components/pages/PopularPage";
+import { Favorites } from "../components/pages/FavoritesPage";
 
 export const routes = [
   {

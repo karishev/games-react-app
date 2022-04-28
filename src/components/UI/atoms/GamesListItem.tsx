@@ -10,7 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { display } from "@mui/system";
 
 interface PageProps {
   game: Game;
@@ -45,7 +44,7 @@ export const GamesListItem: React.FC<PageProps> = ({ game }) => {
       <div className={styles.game_image}>
         <Link to={`/games/${game.id}`}>
           <CardMedia
-            sx={{ aspectRatio: "16/9", maxWidth: "100%", borderRadius: 2 }}
+            sx={{ aspectRatio: "16/9", maxWidth: "100%", borderRadius: 1 }}
             component="img"
             alt={game.title}
             image={game.thumbnail}

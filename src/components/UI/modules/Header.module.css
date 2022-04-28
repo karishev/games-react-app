@@ -16,8 +16,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 8rem;
+  width: 100%;
 }
-
+.leftpart{
+  display: flex;
+  flex-direction: row;
+}
 .logo {
   font-size: 4rem;
   fill: #eeeeee;

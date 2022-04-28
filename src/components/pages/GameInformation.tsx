@@ -24,7 +24,7 @@ export const GameInformation: React.FC = () => {
 
   return (
     <>
-      <div>{game?.description}</div>
+      <div>{game && game.description}</div>
     </>
   );
 };

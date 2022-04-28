@@ -1,6 +1,6 @@
 :root {
-  --font-primary: 'Nunito Sans', sans-serif;
-  --font-secondary: 'Inter', sans-serif;
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
   --bg-header: #121212;
   --bg-footer: #1c1e22;
 }
@@ -43,7 +43,7 @@ a {
 }
 
 .container {
-  width: min(100%, 1200px);
+  width: 100%;
   margin: 0 auto;
 }
 

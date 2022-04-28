@@ -1,7 +1,7 @@
 .grid {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: min(1200px, 100%);
   justify-content: center;
   align-items: center;
   margin-left: 12px;

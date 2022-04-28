@@ -1,7 +1,9 @@
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GameDetails } from "../../model/game.model";
 import api from "../../services/api";
+import styles from "../UI/modules/GameInformation.module.css"
 
 const fetchGame = async (id: number) => {
   try {
@@ -23,8 +25,8 @@ export const GameInformation: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <div>{game && game.description}</div>
+    <> 
+      <section className={styles.container}>{game ? <Typography variant="h4">{game.title}</Typography > : "loading"}</section>
     </>
   );
 };

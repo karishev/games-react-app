@@ -1,0 +1,6 @@
+.main_content {
+  /* margin: 5rem auto 5rem; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}

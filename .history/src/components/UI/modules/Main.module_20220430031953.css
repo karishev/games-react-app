@@ -1,0 +1,6 @@
+.main_content {
+  margin: 8rem auto 8rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}

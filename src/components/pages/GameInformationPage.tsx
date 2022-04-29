@@ -1,10 +1,9 @@
-import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GameDetails } from "../../model/game.model";
-import { Slider } from "../UI/atoms/Slider";
 import api from "../../services/api";
 import styles from "../UI/modules/GameInformation.module.css";
+import { GameInfo } from "../UI/organisms/GameInfo";
 
 const fetchGame = async (id: number) => {
   try {
@@ -21,8 +20,6 @@ export const GameInformation: React.FC = () => {
   const { id } = useParams();
   const [game, setGame] = useState<GameDetails>();
 
-  
-
   useEffect(() => {
     id &&
       fetchGame(parseInt(id)).then((response) => response && setGame(response));
@@ -31,7 +28,11 @@ export const GameInformation: React.FC = () => {
   return (
     <>
       <section className={styles.container}>
-        {game ? <div><Typography variant="h4">{game.title}</Typography> <Slider images={game.screenshots.map(item => item.image)}/></div> : "loading"}
+        {game ? (
+            <GameInfo game={game} />
+        ) : (
+          "loading"
+        )}
       </section>
     </>
   );

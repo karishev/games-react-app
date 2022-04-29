@@ -3,7 +3,7 @@ interface Screenshot {
   image: string;
 }
 
-interface SystemReq {
+export interface SystemReq {
   os: string;
   processor: string;
   memory: string;

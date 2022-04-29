@@ -1,52 +1,54 @@
-import { Button, Card, CardContent, CardMedia } from '@mui/material'
-import { InfoItem } from '../atoms/InfoItem'
-import { ThemeContext } from '../../templates/Main'
-import { MainTheme } from '../../templates/MainTheme'
-import { useContext } from 'react'
+import { Button, Card, CardContent, CardMedia } from "@mui/material";
+import { InfoItem } from "../atoms/InfoItem";
+import { ThemeContext } from "../../templates/Main";
+import { MainTheme } from "../../templates/MainTheme";
+import { useContext } from "react";
 
 interface Props {
-  game_image: string
-  publisher: string
-  developer: string
-  release_date: string
-  platform: string
+  game_image: string;
+  publisher: string;
+  developer: string;
+  release_date: string;
+  platform: string;
 }
 
 export const GameInfoBasics: React.FC<Props> = (game) => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
   const headerStyle: MainTheme = {
     dark: {
-      backgroundColor: '#161515ed',
-      color: 'white',
+      backgroundColor: "#161515ed",
+      color: "white",
+      borderColor: "white",
     },
     light: {
-      backgroundColor: '#f8f7f7',
-      color: 'black',
+      backgroundColor: "#f8f7f7",
+      color: "black",
+      borderColor: "black",
     },
     common: {},
-  }
+  };
 
   const themeStyle = {
     ...headerStyle.common,
-    ...(theme === 'light' ? headerStyle.light : headerStyle.dark),
-  }
+    ...(theme === "light" ? headerStyle.light : headerStyle.dark),
+  };
   return (
     <Card
       sx={{
-        marginLeft: '2rem',
-        maxWidth: '20rem',
-        marginTop: '5rem',
-        backgroundColor: 'rgba(0,0,0,0)',
-        boxShadow: '0',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        marginLeft: "2rem",
+        maxWidth: "20rem",
+        marginTop: "5rem",
+        backgroundColor: "rgba(0,0,0,0)",
+        boxShadow: "0",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
       <CardMedia
         sx={{
-          aspectRatio: '16/9',
-          maxWidth: '100%',
+          aspectRatio: "16/9",
+          maxWidth: "100%",
           borderRadius: 1,
         }}
         component="img"
@@ -54,7 +56,7 @@ export const GameInfoBasics: React.FC<Props> = (game) => {
         image={game.game_image}
       />
 
-      <CardContent sx={{ padding: '0 8px', width: '100%' }}>
+      <CardContent sx={{ padding: "0 8px", width: "100%" }}>
         {Object.entries(game).map(
           ([key, value]) =>
             value !== game.game_image && (
@@ -65,11 +67,9 @@ export const GameInfoBasics: React.FC<Props> = (game) => {
       <Button
         variant="outlined"
         sx={{
-          color: 'white',
-          fontWeight: '400',
-          marginTop: '1rem',
-          maxWidth: '90%',
-          borderColor: 'black',
+          fontWeight: "400",
+          marginTop: "1rem",
+          maxWidth: "90%",
         }}
         fullWidth
         style={themeStyle}
@@ -77,5 +77,5 @@ export const GameInfoBasics: React.FC<Props> = (game) => {
         Add to Favorites
       </Button>
     </Card>
-  )
-}
+  );
+};

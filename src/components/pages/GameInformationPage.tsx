@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { GameDetails } from "../../model/game.model";
 import api from "../../services/api";
 import styles from "../UI/modules/GameInformation.module.css";
-import { GameInfo } from "../UI/organisms/GameInfo";
+import GameInfo  from "../UI/organisms/GameInfo";
 
 const fetchGame = async (id: number) => {
   try {

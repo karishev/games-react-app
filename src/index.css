@@ -67,3 +67,11 @@ a {
 .text-center {
   text-align: center;
 }
+
+.css-1yjjitx-MuiSwitch-track{
+  background-color: white !important;
+}
+
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+  background-color: #1976d2 !important;
+}

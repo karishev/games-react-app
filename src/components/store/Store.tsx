@@ -4,12 +4,14 @@ import Reducer from "./Reducer";
 
 interface ContextProps {
   favorites: Game[];
+  amount: number;
   addToFavorite: (game: Game) => void;
   isFavorite: (id: number) => boolean;
 }
 
 const initialState = {
   favorites: [],
+  amount: 0,
   addToFavorite: () => {},
   isFavorite: () => false,
 };
@@ -27,6 +29,7 @@ const initializeState = () => {
   return (
     (fromlocalStorage && {
       favorites: fromlocalStorage,
+      amount: 0,
       addToFavorite: () => {},
       isFavorite: () => false,
     }) ||
@@ -58,6 +61,7 @@ export const FavoritesProvider: React.FC<StoreProps> = ({ children }) => {
     <FavoritesContext.Provider
       value={{
         favorites: state.favorites,
+        amount: state.favorites.length,
         addToFavorite,
         isFavorite,
       }}

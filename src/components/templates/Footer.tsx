@@ -1,9 +1,10 @@
+import React from "react";
 import { useContext } from "react";
 import styles from "../UI/modules/Footer.module.css";
 import { ThemeContext } from "./Main";
 import { MainTheme } from "./MainTheme";
 
-export const Footer = () => {
+const Footer:React.FC = () => {
   const currentYear = new Date().getFullYear();
   const { theme } = useContext(ThemeContext);
   const headerStyle: MainTheme = {
@@ -36,3 +37,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default React.memo(Footer);

@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { FavoritesProvider } from "./components/store/Store";
+import { SearchProvider } from "./components/templates/SearchContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <FavoritesProvider>
-      <App />
+      <SearchProvider>
+        <App />
+      </SearchProvider>
     </FavoritesProvider>
   </React.StrictMode>
 );

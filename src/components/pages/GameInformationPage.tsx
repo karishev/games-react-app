@@ -4,6 +4,7 @@ import { GameDetails } from "../../model/game.model";
 import api from "../../services/api";
 import styles from "../UI/modules/GameInformation.module.css";
 import GameInfo  from "../UI/organisms/GameInfo";
+import GameInfoSkeleton from "../UI/organisms/GameInfoSkeleton";
 
 const fetchGame = async (id: number) => {
   try {
@@ -31,7 +32,7 @@ export const GameInformation: React.FC = () => {
         {game ? (
             <GameInfo game={game} />
         ) : (
-          "loading"
+          <GameInfoSkeleton />
         )}
       </section>
     </>

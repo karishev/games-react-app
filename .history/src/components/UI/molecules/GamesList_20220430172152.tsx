@@ -6,7 +6,6 @@ import api from '../../../services/api'
 import { Game } from '../../../model/games.model'
 import { Grid } from '@mui/material'
 import { SearchContext } from '../../templates/SearchContext'
-import ErrorBoundary from './ErrorBoundary'
 
 const fetchGames = async () => {
   try {
@@ -60,6 +59,9 @@ export const GamesList = () => {
             : Array.from(new Array(16)).map((item, index) => {
                 return <GameListItemSkeleton key={index} />
               })}
+            {games ? input !== '' : (searchResults === '') {
+              throw new Error('erewr')
+            }}
         </Grid>
       </section>
     </>

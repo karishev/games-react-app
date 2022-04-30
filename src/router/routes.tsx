@@ -3,6 +3,7 @@ import { GameInformation } from '../components/pages/GameInformationPage'
 import { Popular } from '../components/pages/PopularPage'
 import { Favorites } from '../components/pages/FavoritesPage'
 import NotFound from '../components/pages/NotFound'
+import { AboutPage } from '../components/pages/AboutPage'
 
 export const routes = [
   {
@@ -14,8 +15,8 @@ export const routes = [
     component: <GameInformation />,
   },
   {
-    path: '/popular',
-    component: <Popular />,
+    path: '/about',
+    component: <AboutPage />,
   },
   {
     path: '/favorites',

@@ -60,6 +60,7 @@ export const GamesList = () => {
             : Array.from(new Array(16)).map((item, index) => {
                 return <GameListItemSkeleton key={index} />
               })}
+          <h4>Nothing found</h4>
         </Grid>
       </section>
     </>

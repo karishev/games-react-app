@@ -6,7 +6,6 @@ import api from '../../../services/api'
 import { Game } from '../../../model/games.model'
 import { Grid } from '@mui/material'
 import { SearchContext } from '../../templates/SearchContext'
-import ErrorBoundary from './ErrorBoundary'
 
 const fetchGames = async () => {
   try {

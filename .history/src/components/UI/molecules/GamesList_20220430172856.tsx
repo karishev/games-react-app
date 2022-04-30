@@ -24,6 +24,12 @@ export const GamesList = () => {
 
   const { input } = useContext(SearchContext)
 
+  const Error = () => {
+    if (searchResults !== '') {
+      throw new Error('error')
+    }
+  }
+
   useEffect(() => {
     fetchGames().then((response) => response && setGames(response))
   }, [])

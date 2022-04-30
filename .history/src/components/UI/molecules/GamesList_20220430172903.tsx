@@ -23,6 +23,7 @@ export const GamesList = () => {
   const [searchResults, setSearchResults] = useState<Game[]>()
 
   const { input } = useContext(SearchContext)
+}
 
   useEffect(() => {
     fetchGames().then((response) => response && setGames(response))

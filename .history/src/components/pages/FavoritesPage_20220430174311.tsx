@@ -7,9 +7,7 @@ import { GameListItemSkeleton } from '../UI/atoms/GameListItemSkeleton'
 import { GamesListItem } from '../UI/atoms/GamesListItem'
 export const Favorites = () => {
   const { favorites, amount } = useContext(FavoritesContext)
-  if (amount === 5) {
-    throw new Error('error')
-  }
+
   return (
     <>
       <section className={style.grid}>

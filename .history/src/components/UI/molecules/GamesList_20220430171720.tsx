@@ -6,7 +6,6 @@ import api from '../../../services/api'
 import { Game } from '../../../model/games.model'
 import { Grid } from '@mui/material'
 import { SearchContext } from '../../templates/SearchContext'
-import ErrorBoundary from './ErrorBoundary'
 
 const fetchGames = async () => {
   try {
@@ -54,6 +53,9 @@ export const GamesList = () => {
               ? searchResults.map((game: Game) => {
                   return <GamesListItem key={game.id} game={game} />
                 })
+              ? searchResults !== '' ({
+                
+              })
               : games.map((game: Game) => {
                   return <GamesListItem key={game.id} game={game} />
                 })

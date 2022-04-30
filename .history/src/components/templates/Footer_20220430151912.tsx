@@ -31,6 +31,7 @@ const Footer: React.FC = () => {
         <p className="text-muted">
           © {currentYear}, OneLab. All rights reserved
         </p>
+        <p></p>
         <p className={styles.created}>Created with love by Ali and Shyngys</p>
       </div>
     </footer>

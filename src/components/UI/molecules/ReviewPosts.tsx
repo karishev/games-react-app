@@ -11,7 +11,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { ThemeContext } from "../../templates/Main";
 import { MainTheme } from "../../templates/MainTheme";
 import { Post, PostInterface } from "../atoms/Post";
@@ -32,6 +32,8 @@ export const ReviewPosts: React.FC = () => {
   const [reccomended, setRecommended] = useState<boolean>(true);
   const [newPost, setNewPost] = useState<string>(" ");
 
+  const userInput = useRef<HTMLInputElement>(null!);
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -50,6 +52,10 @@ export const ReviewPosts: React.FC = () => {
       setNewPost("");
     } else alert("not enough");
   };
+
+  const handleChange = () => {
+    setNewPost(userInput.current.value);
+  }
 
   const { theme } = useContext(ThemeContext);
   const headerStyle: MainTheme = {
@@ -85,7 +91,7 @@ export const ReviewPosts: React.FC = () => {
         >
           Create a post
         </CreatePostButton>
-        
+
         <Dialog open={open} onClose={handleClose}>
           <DialogContent>
             <DialogContentText>
@@ -93,6 +99,7 @@ export const ReviewPosts: React.FC = () => {
               others!
             </DialogContentText>
             <TextField
+              inputRef={userInput}
               autoFocus
               margin="dense"
               id="name"
@@ -100,18 +107,22 @@ export const ReviewPosts: React.FC = () => {
               type="email"
               fullWidth
               variant="standard"
-              onChange={({ target }) => setNewPost(target.value)}
+              onChange={handleChange}
             />
           </DialogContent>
           <DialogActions>
             <FormControl sx={{ width: "20%", marginRight: "19rem" }}>
               <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                Would you reccomend it?w
+                Would you reccomend it?
               </InputLabel>
               <NativeSelect
-                onChange={({ target }) => {target.value == "0" ? setRecommended(true) : setRecommended(false);}}
+                onChange={({ target }) => {
+                  target.value == "0"
+                    ? setRecommended(true)
+                    : setRecommended(false);
+                }}
                 defaultValue={30}
-                inputProps={{name: "age", id: "uncontrolled-native",}}
+                inputProps={{ name: "age", id: "uncontrolled-native" }}
               >
                 <option value={0}>Yes</option>
                 <option value={1}>No</option>

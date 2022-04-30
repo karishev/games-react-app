@@ -1,6 +1,6 @@
-import { Game } from '../../../model/games.model'
-import styles from '../modules/GameListItem.module.css'
-import React from 'react'
+import { Game } from "../../../model/games.model";
+import styles from "../modules/GameListItem.module.css";
+import React from "react";
 import {
   Button,
   Card,
@@ -10,65 +10,68 @@ import {
   Tooltip,
   Typography,
   Zoom,
-} from '@mui/material'
-import { Link } from 'react-router-dom'
-import { ThemeContext } from '../../templates/Main'
-import { MainTheme } from '../../templates/MainTheme'
-import { useContext } from 'react'
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import { ThemeContext } from "../../templates/Main";
+import { MainTheme } from "../../templates/MainTheme";
+import { useContext } from "react";
+import { FavoritesContext } from "../../store/Store";
 
 interface PageProps {
-  game: Game
+  game: Game;
 }
 
 const AddButton = styled(Button)({
-  position: 'relative',
-  fontSize: '15px',
-  fontWeight: 'bold',
-  backgroundColor: '#121212',
-  color: 'white',
-  padding: '0',
-  border: '1px solid white',
-  borderRadius: '50%',
-  aspectRatio: '1/1',
-  minWidth: '30px',
-  visibility: 'hidden',
-  zIndex: '2',
-})
+  position: "relative",
+  fontSize: "15px",
+  fontWeight: "bold",
+  backgroundColor: "#121212",
+  color: "white",
+  padding: "0",
+  border: "1px solid white",
+  borderRadius: "50%",
+  aspectRatio: "1/1",
+  minWidth: "30px",
+  visibility: "hidden",
+  zIndex: "2",
+});
 
 export const GamesListItem: React.FC<PageProps> = ({ game }) => {
-  const { theme } = useContext(ThemeContext)
+  const { isFavorite, addToFavorite } = useContext(FavoritesContext);
+
+  const { theme } = useContext(ThemeContext);
   const headerStyle: MainTheme = {
     dark: {
-      backgroundColor: '#161515ed',
-      color: 'white',
+      backgroundColor: "#161515ed",
+      color: "white",
     },
     light: {
-      backgroundColor: '#f8f7f7',
-      color: 'black',
+      backgroundColor: "#f8f7f7",
+      color: "black",
     },
     common: {},
-  }
+  };
 
   const themeStyle = {
     ...headerStyle.common,
-    ...(theme === 'light' ? headerStyle.light : headerStyle.dark),
-  }
+    ...(theme === "light" ? headerStyle.light : headerStyle.dark),
+  };
   return (
     <Card
       className={styles.container}
       sx={{
-        maxWidth: '18rem',
-        margin: '0.5rem',
-        backgroundColor: 'rgba(0,0,0,0)',
-        boxShadow: '0',
+        maxWidth: "18rem",
+        margin: "0.5rem",
+        backgroundColor: "rgba(0,0,0,0)",
+        boxShadow: "0",
       }}
     >
       <div className={styles.game_image}>
         <Link to={`/games/${game.id}`}>
           <CardMedia
             sx={{
-              aspectRatio: '16/9',
-              maxWidth: '100%',
+              aspectRatio: "16/9",
+              maxWidth: "100%",
               borderRadius: 1,
             }}
             component="img"
@@ -79,18 +82,18 @@ export const GamesListItem: React.FC<PageProps> = ({ game }) => {
       </div>
       <div className={styles.add}>
         <Tooltip
-          title="Add to Favorites"
+          title={!isFavorite(game.id) ? "Add to Favorites" : "Remove from Favorites"}
           TransitionComponent={Zoom}
           placement="top"
-          sx={{ bgcolor: '#121212' }}
+          sx={{ bgcolor: "#121212" }}
         >
           <AddButton
             className={styles.add_icon}
             onClick={() => {
-              console.log('salam')
+              addToFavorite(game);
             }}
           >
-            +
+            {isFavorite(game.id) ? "✔" : "+"}
           </AddButton>
         </Tooltip>
       </div>
@@ -107,10 +110,10 @@ export const GamesListItem: React.FC<PageProps> = ({ game }) => {
         </Link>
         <Typography variant="body2" color="gray">
           {game.short_description.length > 80
-            ? game.short_description.substring(0, 80) + '...'
+            ? game.short_description.substring(0, 80) + "..."
             : game.short_description}
         </Typography>
       </CardContent>
     </Card>
-  )
-}
+  );
+};

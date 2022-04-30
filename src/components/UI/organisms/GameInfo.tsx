@@ -7,6 +7,7 @@ import { SystemReqs } from "../molecules/SystemReqs";
 import { ThemeContext } from "../../templates/Main";
 import { MainTheme } from "../../templates/MainTheme";
 import React, { useContext } from "react";
+import { FavoritesContext } from "../../store/Store";
 
 const TypographyImproved = styled(Typography)({
   marginTop: "2rem",
@@ -21,6 +22,9 @@ interface Props {
 }
 
 const GameInfo: React.FC<Props> = ({ game }) => {
+
+  const {addToFavorite } = useContext(FavoritesContext);
+
   const { theme } = useContext(ThemeContext);
   const headerStyle: MainTheme = {
     dark: {
@@ -38,7 +42,12 @@ const GameInfo: React.FC<Props> = ({ game }) => {
     ...headerStyle.common,
     ...(theme === "light" ? headerStyle.light : headerStyle.dark),
   };
+
   const checked = game.description.split(". ");
+
+  const HandleClick = () => {
+    addToFavorite(game);
+  }
   return (
     <div className={styles.container}>
       <div>
@@ -69,11 +78,13 @@ const GameInfo: React.FC<Props> = ({ game }) => {
         <SystemReqs reqs={game.minimum_system_requirements} />
       </div>
       <GameInfoBasics
+        id={game.id}
         game_image={game.thumbnail}
         publisher={game.publisher}
         developer={game.developer}
         release_date={game.release_date}
         platform={game.platform}
+        HandleClick = {HandleClick}
       />
     </div>
   );

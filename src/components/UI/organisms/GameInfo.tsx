@@ -8,6 +8,7 @@ import { ThemeContext } from "../../templates/Main";
 import { MainTheme } from "../../templates/MainTheme";
 import React, { useContext } from "react";
 import { FavoritesContext } from "../../store/Store";
+import { ReviewPosts } from "../molecules/ReviewPosts";
 
 interface Props {
   game: GameDetails;
@@ -64,6 +65,7 @@ const GameInfo: React.FC<Props> = ({ game }) => {
           Specifications
         </TypographyImproved>
         <SystemReqs reqs={game.minimum_system_requirements} />
+        <ReviewPosts />
       </div>
       <GameInfoBasics
         id={game.id}
@@ -78,7 +80,7 @@ const GameInfo: React.FC<Props> = ({ game }) => {
   );
 };
 
-const TypographyImproved = styled(Typography)({
+export const TypographyImproved = styled(Typography)({
   marginTop: "2rem",
   fontWeight: "400",
   maxWidth: "50vw",

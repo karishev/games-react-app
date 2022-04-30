@@ -9,21 +9,12 @@ import { MainTheme } from "../../templates/MainTheme";
 import React, { useContext } from "react";
 import { FavoritesContext } from "../../store/Store";
 
-const TypographyImproved = styled(Typography)({
-  marginTop: "2rem",
-  fontWeight: "400",
-  maxWidth: "50vw",
-  color: "#F5F5F599",
-  lineHeight: "25px",
-});
-
 interface Props {
   game: GameDetails;
 }
 
 const GameInfo: React.FC<Props> = ({ game }) => {
-
-  const {addToFavorite } = useContext(FavoritesContext);
+  const { addToFavorite } = useContext(FavoritesContext);
 
   const { theme } = useContext(ThemeContext);
   const headerStyle: MainTheme = {
@@ -47,7 +38,7 @@ const GameInfo: React.FC<Props> = ({ game }) => {
 
   const HandleClick = () => {
     addToFavorite(game);
-  }
+  };
   return (
     <div className={styles.container}>
       <div>
@@ -69,10 +60,7 @@ const GameInfo: React.FC<Props> = ({ game }) => {
             {game.description.substring(game.description.indexOf(checked[7]))}
           </TypographyImproved>
         )}
-        <TypographyImproved
-          variant="body1"
-          style={themeStyle}
-        >
+        <TypographyImproved variant="body1" style={themeStyle}>
           Specifications
         </TypographyImproved>
         <SystemReqs reqs={game.minimum_system_requirements} />
@@ -84,10 +72,18 @@ const GameInfo: React.FC<Props> = ({ game }) => {
         developer={game.developer}
         release_date={game.release_date}
         platform={game.platform}
-        HandleClick = {HandleClick}
+        HandleClick={HandleClick}
       />
     </div>
   );
 };
+
+const TypographyImproved = styled(Typography)({
+  marginTop: "2rem",
+  fontWeight: "400",
+  maxWidth: "50vw",
+  color: "#F5F5F599",
+  lineHeight: "25px",
+});
 
 export default React.memo(GameInfo);

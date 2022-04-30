@@ -21,21 +21,6 @@ interface PageProps {
   game: Game;
 }
 
-const AddButton = styled(Button)({
-  position: "relative",
-  fontSize: "15px",
-  fontWeight: "bold",
-  backgroundColor: "#121212",
-  color: "white",
-  padding: "0",
-  border: "1px solid white",
-  borderRadius: "50%",
-  aspectRatio: "1/1",
-  minWidth: "30px",
-  visibility: "hidden",
-  zIndex: "2",
-});
-
 export const GamesListItem: React.FC<PageProps> = ({ game }) => {
   const { isFavorite, addToFavorite } = useContext(FavoritesContext);
 
@@ -82,7 +67,9 @@ export const GamesListItem: React.FC<PageProps> = ({ game }) => {
       </div>
       <div className={styles.add}>
         <Tooltip
-          title={!isFavorite(game.id) ? "Add to Favorites" : "Remove from Favorites"}
+          title={
+            !isFavorite(game.id) ? "Add to Favorites" : "Remove from Favorites"
+          }
           TransitionComponent={Zoom}
           placement="top"
           sx={{ bgcolor: "#121212" }}
@@ -117,3 +104,18 @@ export const GamesListItem: React.FC<PageProps> = ({ game }) => {
     </Card>
   );
 };
+
+const AddButton = styled(Button)({
+  position: "relative",
+  fontSize: "15px",
+  fontWeight: "bold",
+  backgroundColor: "#121212",
+  color: "white",
+  padding: "0",
+  border: "1px solid white",
+  borderRadius: "50%",
+  aspectRatio: "1/1",
+  minWidth: "30px",
+  visibility: "hidden",
+  zIndex: "2",
+});

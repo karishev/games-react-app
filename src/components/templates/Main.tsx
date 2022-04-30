@@ -1,40 +1,48 @@
-import React from 'react'
-import { Header } from './Header'
-import Footer from './Footer'
-import styles from '../UI/modules/Main.module.css'
-import { useState, createContext } from 'react'
-import { MainTheme } from './MainTheme'
+import React, { useEffect } from "react";
+import { Header } from "./Header";
+import Footer from "./Footer";
+import styles from "../UI/modules/Main.module.css";
+import { useState, createContext } from "react";
+import { MainTheme } from "./MainTheme";
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 interface ThemeContext {
-  theme: string
-  setTheme: any
+  theme: string;
+  setTheme: any;
 }
 
-export const ThemeContext = createContext({} as ThemeContext)
+export const ThemeContext = createContext({} as ThemeContext);
 
 export const Main = ({ children }: LayoutProps) => {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState("dark");
   const headerStyle: MainTheme = {
     dark: {
-      backgroundColor: '#161515ed',
-      color: 'white',
+      backgroundColor: "#161515ed",
+      color: "white",
     },
     light: {
-      backgroundColor: '#f8f7f7',
-      color: 'black',
+      backgroundColor: "#f8f7f7",
+      color: "black",
     },
     common: {
-      transition: 'background-color 0.1s ease',
+      transition: "background-color 0.1s ease",
     },
-  }
+  };
 
   const mainStyle = {
     ...headerStyle.common,
-    ...(theme === 'light' ? headerStyle.light : headerStyle.dark),
-  }
+    ...(theme === "light" ? headerStyle.light : headerStyle.dark),
+  };
+
+  useEffect(() => {
+    const bodyElem = document.body;
+    theme === "light"
+      ? (bodyElem.className = "lighttheme")
+      : (bodyElem.className = "darktheme");
+  }, [theme]);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <>
@@ -45,5 +53,5 @@ export const Main = ({ children }: LayoutProps) => {
         <Footer />
       </>
     </ThemeContext.Provider>
-  )
-}
+  );
+};

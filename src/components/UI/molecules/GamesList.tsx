@@ -49,11 +49,11 @@ export const GamesList = () => {
           columnSpacing={{ xs: 1, sm: 1, md: 3 }}
         >
           {games
-            ? input === ""
-              ? games.map((game: Game) => {
+            ? input !== "" && searchResults
+              ? searchResults.map((game: Game) => {
                   return <GamesListItem key={game.id} game={game} />;
                 })
-              : searchResults && searchResults.map((game: Game) => {
+              : games.map((game: Game) => {
                   return <GamesListItem key={game.id} game={game} />;
                 })
             : Array.from(new Array(16)).map((item, index) => {

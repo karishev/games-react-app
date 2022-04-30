@@ -85,6 +85,7 @@ export const ReviewPosts: React.FC = () => {
         >
           Create a post
         </CreatePostButton>
+        
         <Dialog open={open} onClose={handleClose}>
           <DialogContent>
             <DialogContentText>
@@ -108,16 +109,9 @@ export const ReviewPosts: React.FC = () => {
                 Would you reccomend it?w
               </InputLabel>
               <NativeSelect
-                onChange={({ target }) => {
-                  target.value == "0"
-                    ? setRecommended(true)
-                    : setRecommended(false);
-                }}
+                onChange={({ target }) => {target.value == "0" ? setRecommended(true) : setRecommended(false);}}
                 defaultValue={30}
-                inputProps={{
-                  name: "age",
-                  id: "uncontrolled-native",
-                }}
+                inputProps={{name: "age", id: "uncontrolled-native",}}
               >
                 <option value={0}>Yes</option>
                 <option value={1}>No</option>

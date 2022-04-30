@@ -13,7 +13,7 @@ export const AboutPage = () => {
       color: 'white',
     },
     light: {
-      backgroundColor: '#f9f8f8',
+      backgroundColor: '#f8f7f7',
       color: 'black',
     },
     common: {

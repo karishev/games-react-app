@@ -45,7 +45,7 @@ export const Post: React.FC<Props> = ({ post }) => {
               </Typography>
             )}
           </div>
-          <Typography sx={{marginTop: "1rem"}} variant="body2">{post.message}</Typography>
+          <Typography sx={{marginTop: "1rem", overflowWrap: "anywhere"}} variant="body2">{post.message}</Typography>
         </div>
       </Container>
     </>

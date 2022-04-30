@@ -3,7 +3,7 @@ import { Card, CardContent, Skeleton } from "@mui/material";
 import { ThemeContext } from "../../templates/Main";
 import { MainTheme } from "../../templates/MainTheme";
 
-export const GameListItemSkeleton: React.FC = () => {
+const GameListItemSkeleton: React.FC = () => {
   const { theme } = useContext(ThemeContext);
   const headerStyle: MainTheme = {
     dark: {
@@ -43,3 +43,5 @@ export const GameListItemSkeleton: React.FC = () => {
     </Card>
   );
 };
+
+export default React.memo(GameListItemSkeleton);

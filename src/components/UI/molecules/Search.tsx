@@ -1,5 +1,5 @@
 import { Card } from "@mui/material";
-import {useContext, useRef, useState } from "react";
+import {useContext, useRef } from "react";
 import { SearchContext } from "../../templates/SearchContext";
 
 export const Search = () => {

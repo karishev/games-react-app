@@ -1,5 +1,5 @@
 import { GamesListItem } from '../atoms/GamesListItem'
-import { GameListItemSkeleton } from '../atoms/GameListItemSkeleton'
+import GameListItemSkeleton from '../atoms/GameListItemSkeleton'
 import { useContext, useEffect, useState } from 'react'
 import style from '../modules/GamesList.module.css'
 import api from '../../../services/api'
@@ -40,6 +40,7 @@ export const GamesList = () => {
       setSearchResults(games)
     }
   }, [input])
+  
   return (
     <>
       <section className={style.grid}>
